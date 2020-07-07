@@ -298,7 +298,9 @@ int msgpack_convert_object(zval *return_value, zval *tpl, zval *value) /* {{{ */
         fci.retval = &retval;
         fci.param_count = 0;
         fci.params = &params;
+#if PHP_MAJOR_VERSION < 8
         fci.no_separation = 1;
+#endif
 
 #if PHP_VERSION_ID < 70300
         fcc.initialized = 1;
